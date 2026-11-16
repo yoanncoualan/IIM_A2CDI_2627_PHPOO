@@ -1,6 +1,9 @@
 <?php
 
 class Produit {
+
+    use LoggerTrait;
+
     // Liste des propriétés
     protected string $nom;
     protected ?string $description;
@@ -20,6 +23,8 @@ class Produit {
         $this->setDescription($description);
         $this->setQuantite($quantite);
         $this->setPrix($prix);
+
+        $this->log(__CLASS__, 'Création d\'un produit : '. $this->getNom());
     }
  
     // Setters et Getters

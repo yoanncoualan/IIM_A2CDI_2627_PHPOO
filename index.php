@@ -1,4 +1,5 @@
 <?php
+require_once './trait/LoggerTrait.php';
 // Import de la class Produit
 require_once './class/Produit.php';
 require_once './class/ProduitPhysique.php';

@@ -1,6 +1,8 @@
 <?php
 
 class ProduitPhysique extends Produit {
+    use LoggerTrait;
+
     public function __construct(
         string $nom,
         ?string $description,
@@ -10,6 +12,8 @@ class ProduitPhysique extends Produit {
     ){
         // Ici on appel le constructeur du parent, en lui envoyant les données
         parent::__construct($nom, $description, $quantite, $prix);
+
+        $this->log(__CLASS__, 'Création d\'un produit physique : '. $this->getNom());
     }
     
     // Setter et Getter
