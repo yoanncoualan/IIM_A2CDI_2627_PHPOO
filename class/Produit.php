@@ -1,6 +1,6 @@
 <?php
 
-class Produit {
+class Produit implements ProduitInterface {
 
     use LoggerTrait;
 
@@ -9,6 +9,7 @@ class Produit {
     protected ?string $description;
     protected int $quantite;
     protected float $prix;
+    protected string $image;
 
     const TAXE = 1.2; // 20% de TVA
 
@@ -84,5 +85,15 @@ class Produit {
         '<p>Prix HT : '. $this->getPrix() . '€</p>'.
         '<p>TVA : '. $this->getMontantTva() . '€</p>'.
         '<p>Prix TTC : '. $this->getPrixTTC() . '€</p>';
+    }
+
+    public function setImage(string $value): self
+    {
+        $this->image = $value;
+        return $this;
+    }
+    public function getImage(): string
+    {
+        return $this->image;
     }
 }
